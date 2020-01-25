@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BindingDemo</string>
+    <string name="do_it">Do it</string>
+    <string name="sal_1">Rvd</string>
+    <string name="sal_2">Rvd Dr</string>
+    <string name="sal_3">Rvd Dr Dr</string>
+</resources>
