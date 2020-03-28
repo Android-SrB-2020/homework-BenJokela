@@ -43,6 +43,9 @@ android {
 }
 
 dependencies {
+    def lifecycle_version = "2.2.0"
+    def arch_version = "2.1.0"
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.0.2'
@@ -53,8 +56,21 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
     // KTX
     implementation 'androidx.core:core-ktx:1.0.1'
+    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
 
     // Navigation
     implementation "android.arch.navigation:navigation-fragment-ktx:1.0.0"
     implementation "android.arch.navigation:navigation-ui-ktx:1.0.0"
+
+    //ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    //LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    //Saved state module for viewmodel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
+    //Annotation processor
+    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+
+    //Timber
+    implementation 'com.jakewharton.timber:timber:4.7.1'
 }

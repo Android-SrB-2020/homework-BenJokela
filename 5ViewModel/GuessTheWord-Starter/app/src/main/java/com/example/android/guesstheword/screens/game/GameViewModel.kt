@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import timber.log.Timber
 
 class GameViewModel : ViewModel() {
     private val timer: CountDownTimer
@@ -34,6 +35,9 @@ class GameViewModel : ViewModel() {
     val score: LiveData<Int>
         get() = _score
 
+    // The list of words - the front of the list is the next _word to guess
+    private lateinit var wordList: MutableList<String>
+
     // Countdown time
     private val _currentTime = MutableLiveData<Long>()
     val currentTime: LiveData<Long>
@@ -50,9 +54,6 @@ class GameViewModel : ViewModel() {
     val eventGameFinish: LiveData<Boolean>
         get() = _eventGameFinish
 
-
-    // The list of words - the front of the list is the next _word to guess
-    private lateinit var wordList: MutableList<String>
 
 
     /**
@@ -86,9 +87,10 @@ class GameViewModel : ViewModel() {
     }
 
     init {
+        Timber.i("GameViewModel created!")
         _word.value = ""
         _score.value = 0
-        Log.i("GameViewModel", "GameViewModel created!")
+
         resetList()
         nextWord()
 
@@ -113,7 +115,7 @@ class GameViewModel : ViewModel() {
      */
     override fun onCleared() {
         super.onCleared()
-        Log.i("GameViewModel", "GameViewModel destroyed!")
+        Timber.i("GameViewModel destroyed")
         timer.cancel()
     }
 
