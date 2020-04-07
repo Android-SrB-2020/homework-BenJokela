@@ -31,7 +31,8 @@ import retrofit2.http.Query
 enum class MarsApiFilter(val value: String) {
     SHOW_RENT("rent"),
     SHOW_BUY("buy"),
-    SHOW_ALL("all") }
+    SHOW_ALL("all")
+}
 
 private const val BASE_URL = " https://android-kotlin-fun-mars-server.appspot.com/"
 
